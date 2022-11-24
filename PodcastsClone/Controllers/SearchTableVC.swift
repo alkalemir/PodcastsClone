@@ -13,11 +13,7 @@ class SearchTableVC: UITableViewController {
     
     let cellId = "cellId"
     let searchController = UISearchController(searchResultsController: nil)
-    var podcasts = [
-        Podcast(name: "Test", artistName: "Test 1"),
-        Podcast(name: "Test", artistName: "Test 2"),
-        Podcast(name: "Test", artistName: "Test 3"),
-    ]
+    var podcasts: [Podcast] = []
     
     // MARK: - Functions
     
@@ -46,7 +42,7 @@ extension SearchTableVC {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.text = "\(podcasts[indexPath.row].name)\n\(podcasts[indexPath.row].artistName)"
+        cell.textLabel?.text = "\(podcasts[indexPath.row].trackName ?? "")\n\(podcasts[indexPath.row].artistName ?? "")"
         cell.imageView?.image = UIImage(named: "appicon")
         
         return cell
@@ -68,6 +64,12 @@ extension SearchTableVC: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        APIService.shared.fetchPodcasts(with: searchText) { podcasts in
+            self.podcasts = podcasts
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
 }
