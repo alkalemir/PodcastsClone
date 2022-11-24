@@ -19,8 +19,8 @@ class SearchTableVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureCell()
         configureSearchController()
+        configureCell()
     }
 }
 
@@ -28,7 +28,7 @@ class SearchTableVC: UITableViewController {
 
 extension SearchTableVC {
     func configureCell() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        tableView.register(UINib(nibName: "PodcastCell", bundle: nil), forCellReuseIdentifier: cellId)
     }
 }
 
@@ -40,11 +40,8 @@ extension SearchTableVC {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.text = "\(podcasts[indexPath.row].trackName ?? "")\n\(podcasts[indexPath.row].artistName ?? "")"
-        cell.imageView?.image = UIImage(named: "appicon")
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! PodcastCell
+        cell.podcast = podcasts[indexPath.row]
         return cell
     }
     
