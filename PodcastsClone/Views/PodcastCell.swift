@@ -6,22 +6,25 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PodcastCell: UITableViewCell {
     
     @IBOutlet weak var podcastImageView: UIImageView!
+    @IBOutlet weak var artistNameLabel: UILabel!
+    @IBOutlet weak var episodeCount: UILabel!
     @IBOutlet weak var trackNameLabel: UILabel! {
         didSet {
             trackNameLabel.numberOfLines = 2
         }
     }
-    @IBOutlet weak var artistNameLabel: UILabel!
-    @IBOutlet weak var episodeCount: UILabel!
     
     var podcast: Podcast! {
         didSet {
             trackNameLabel.text = podcast.trackName
             artistNameLabel.text = podcast.artistName
+            episodeCount.text = "\(podcast.trackCount ?? 0) Episodes"
+            podcastImageView.sd_setImage(with: URL(string: podcast.artworkUrl600 ?? ""))
         }
     }
 }
