@@ -38,7 +38,7 @@ class APIService {
         }
     }
     
-    func fetchEpisodes(with feedUrl: URL, completionHandler: @escaping ([RSSFeedItem]) -> ()) {
+    func fetchEpisodes(with feedUrl: URL, completionHandler: @escaping ([Episode]) -> ()) {
         let parser = FeedParser(URL: feedUrl)
         
         parser.parseAsync { result in
@@ -46,8 +46,8 @@ class APIService {
             case .failure(let error):
                 print(error)
             case .success(let rss):
-                guard let items = rss.rssFeed?.items else { return }
-                completionHandler(items)
+                guard let feed = rss.rssFeed else { return }
+                completionHandler(feed.toEpisodes())
             }
         }
     }

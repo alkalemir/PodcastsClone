@@ -17,13 +17,11 @@ class EpisodesTableVC: UITableViewController {
             
             APIService.shared.fetchEpisodes(with: url) { items in
                 items.forEach { item in
-                    let imageUrl = item.iTunes?.iTunesImage?.attributes?.href ?? ""
-                    
                     let episode = Episode(
-                        title: item.title ?? "",
-                        pubDate: item.pubDate ?? Date(),
-                        description: item.description ?? "",
-                        imageUrl: imageUrl)
+                        title: item.title,
+                        pubDate: item.pubDate,
+                        description: item.description,
+                        imageUrl: item.imageUrl)
                     
                     self.episodes.append(episode)
                 }
