@@ -11,5 +11,6 @@ struct Episode {
     let title: String
     let pubDate: Date
     let description: String
-    let imageUrl: String
+    var imageUrl: String
+    let author: String
 }

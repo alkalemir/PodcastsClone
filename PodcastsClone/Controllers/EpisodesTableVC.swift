@@ -17,12 +17,14 @@ class EpisodesTableVC: UITableViewController {
             
             APIService.shared.fetchEpisodes(with: url) { items in
                 items.forEach { item in
-                    let episode = Episode(
-                        title: item.title,
-                        pubDate: item.pubDate,
-                        description: item.description,
-                        imageUrl: item.imageUrl)
-                    
+                    var episode = item
+                    episode.imageUrl = item.imageUrl == "" ? (self.podcast?.artworkUrl600 ?? "") : item.imageUrl
+//                    let episode = Episode(
+//                        title: item.title,
+//                        pubDate: item.pubDate,
+//                        description: item.description,
+//                        imageUrl: item.imageUrl == "" ? (self.podcast?.artworkUrl600 ?? "") : item.imageUrl,
+//                        author: item.author)
                     self.episodes.append(episode)
                 }
                 DispatchQueue.main.async {
@@ -59,5 +61,20 @@ extension EpisodesTableVC {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         132
+    }
+}
+
+// MARK: - TableView Delegate
+
+extension EpisodesTableVC {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let episode = episodes[indexPath.row]
+        let window = UIApplication.shared.keyWindow
+        let playerDetailsView = Bundle.main.loadNibNamed("PlayerDetailsView", owner: self)?.first as! PlayerDetailsView
+        playerDetailsView.frame = view.frame
+        playerDetailsView.episode = episode
+        
+        window?.addSubview(playerDetailsView)
+        
     }
 }

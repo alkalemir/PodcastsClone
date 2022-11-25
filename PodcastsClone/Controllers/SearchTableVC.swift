@@ -69,7 +69,6 @@ extension SearchTableVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let episodesController = EpisodesTableVC()
         episodesController.podcast = podcasts[indexPath.row]
-        
         navigationController?.pushViewController(episodesController, animated: true)
     }
 }

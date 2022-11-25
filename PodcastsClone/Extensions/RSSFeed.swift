@@ -14,11 +14,13 @@ extension RSSFeed {
         self.items?.forEach({ item in
             let imageUrl = item.iTunes?.iTunesImage?.attributes?.href ?? ""
             
+            
             let episode = Episode(
                 title: item.title ?? "",
                 pubDate: item.pubDate ?? Date(),
-                description: item.description ?? "",
-                imageUrl: imageUrl)
+                description: item.iTunes?.iTunesSubtitle ?? "",
+                imageUrl: imageUrl,
+                author: item.iTunes?.iTunesAuthor ?? "")
             
             episodes.append(episode)
         })
