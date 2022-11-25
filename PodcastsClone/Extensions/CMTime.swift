@@ -5,7 +5,7 @@
 //  Created by Emir Alkal on 25.11.2022.
 //
 
-import Foundation
+import UIKit
 
 extension CMTime {
     func toDisplayString() -> String {
