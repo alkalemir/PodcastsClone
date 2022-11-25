@@ -10,7 +10,11 @@ import SDWebImage
 
 class EpisodeCell: UITableViewCell {
     
-    @IBOutlet weak var episodeImageView: UIImageView!
+    @IBOutlet weak var episodeImageView: UIImageView! {
+        didSet {
+            episodeImageView.layer.cornerRadius = 5
+        }
+    }
     @IBOutlet weak var pubDateLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel! {
         didSet {
@@ -27,7 +31,7 @@ class EpisodeCell: UITableViewCell {
         didSet {
             descriptionLabel.text = episode.description
             episodeTitleLabel.text = episode.title
-            episodeImageView.sd_setImage(with: URL(string: episode.imageUrl))
+            episodeImageView.sd_setImage(with: URL(httpToHttps: episode.imageUrl))
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MMM dd, YYYY"

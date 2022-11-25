@@ -13,19 +13,17 @@ class EpisodesTableVC: UITableViewController {
         didSet {
             navigationItem.title = podcast?.trackName
             guard let feedUrl = podcast?.feedUrl else { return }
-            let secureFeedUrl = feedUrl.contains("https") ? feedUrl : feedUrl.replacingOccurrences(of: "http", with: "https")
-            guard let url = URL(string: secureFeedUrl) else { return }
+            guard let url = URL(httpToHttps: feedUrl) else { return }
             
             APIService.shared.fetchEpisodes(with: url) { items in
                 items.forEach { item in
                     let imageUrl = item.iTunes?.iTunesImage?.attributes?.href ?? ""
-                    let safeImageUrl = imageUrl.contains("https") ? imageUrl : imageUrl.replacingOccurrences(of: "http", with: "https")
                     
                     let episode = Episode(
                         title: item.title ?? "",
                         pubDate: item.pubDate ?? Date(),
                         description: item.description ?? "",
-                        imageUrl: safeImageUrl)
+                        imageUrl: imageUrl)
                     
                     self.episodes.append(episode)
                 }

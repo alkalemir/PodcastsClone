@@ -21,6 +21,7 @@
 		2D79DEE12930C8B400105242 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D79DEE02930C8B400105242 /* Episode.swift */; };
 		2D79DEE82930D75C00105242 /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D79DEE62930D75C00105242 /* EpisodeCell.swift */; };
 		2D79DEE92930D75C00105242 /* EpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D79DEE72930D75C00105242 /* EpisodeCell.xib */; };
+		2DF66DCE2930E16100FEAAC7 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF66DCD2930E16100FEAAC7 /* URL.swift */; };
 		A8F2E68C741D97D674584AAA /* Pods_PodcastsClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EEDCA5B47483D4E9E4D3723 /* Pods_PodcastsClone.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		2D79DEE02930C8B400105242 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		2D79DEE62930D75C00105242 /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
 		2D79DEE72930D75C00105242 /* EpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeCell.xib; sourceTree = "<group>"; };
+		2DF66DCD2930E16100FEAAC7 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		93EFF4BE39528F1D5CB3BB53 /* Pods-PodcastsClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodcastsClone.debug.xcconfig"; path = "Target Support Files/Pods-PodcastsClone/Pods-PodcastsClone.debug.xcconfig"; sourceTree = "<group>"; };
 		9EEDCA5B47483D4E9E4D3723 /* Pods_PodcastsClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodcastsClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -82,6 +84,7 @@
 				2D5A5368292FF580009541F1 /* Assets.xcassets */,
 				2D5A536D292FF580009541F1 /* Info.plist */,
 				2D5A5377292FF5E5009541F1 /* Supporting Files */,
+				2DF66DCC2930E15500FEAAC7 /* Extensions */,
 				2D5A5376292FF5DF009541F1 /* Services */,
 				2D5A5373292FF5CA009541F1 /* Models */,
 				2D5A5374292FF5CF009541F1 /* Views */,
@@ -136,6 +139,14 @@
 				2D79DEDE2930C56700105242 /* EpisodesTableVC.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2DF66DCC2930E15500FEAAC7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2DF66DCD2930E16100FEAAC7 /* URL.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		779CF538661F2E1919EB59ED /* Frameworks */ = {
@@ -274,6 +285,7 @@
 				2D5A5360292FF57F009541F1 /* AppDelegate.swift in Sources */,
 				2D5A5382292FFC7F009541F1 /* SearchTableVC.swift in Sources */,
 				2D5A5362292FF57F009541F1 /* SceneDelegate.swift in Sources */,
+				2DF66DCE2930E16100FEAAC7 /* URL.swift in Sources */,
 				2D5A5380292FFC5D009541F1 /* MainTabBarController.swift in Sources */,
 				2D5A538829300DA9009541F1 /* APIService.swift in Sources */,
 				2D79DEE82930D75C00105242 /* EpisodeCell.swift in Sources */,
