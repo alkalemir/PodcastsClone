@@ -20,7 +20,8 @@ extension RSSFeed {
                 pubDate: item.pubDate ?? Date(),
                 description: item.iTunes?.iTunesSubtitle ?? "",
                 imageUrl: imageUrl,
-                author: item.iTunes?.iTunesAuthor ?? "")
+                author: item.iTunes?.iTunesAuthor ?? "",
+                mp3url: item.enclosure?.attributes?.url ?? "")
             
             episodes.append(episode)
         })

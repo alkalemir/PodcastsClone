@@ -90,6 +90,7 @@
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zF-on-lqN">
                                     <rect key="frame" x="49.333333333333329" y="0.0" width="49.333333333333329" height="144"/>
+                                    <color key="tintColor" systemColor="labelColor"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="rewind15"/>
                                 </button>
@@ -99,6 +100,7 @@
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sad-Ot-JnV">
                                     <rect key="frame" x="148" y="0.0" width="49" height="144"/>
+                                    <color key="tintColor" systemColor="labelColor"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="play"/>
                                 </button>
@@ -108,6 +110,7 @@
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHf-nS-Tuk">
                                     <rect key="frame" x="246.33333333333334" y="0.0" width="49.333333333333343" height="144"/>
+                                    <color key="tintColor" systemColor="labelColor"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="fastforward15"/>
                                 </button>
@@ -149,6 +152,7 @@
                 <outlet property="authorLabel" destination="ToU-zj-TmX" id="iFQ-tK-KQY"/>
                 <outlet property="episodeImageView" destination="lM0-MO-Gqp" id="giK-1V-B35"/>
                 <outlet property="episodeTitle" destination="mVc-1e-9Ma" id="MFj-WQ-b3e"/>
+                <outlet property="playPauseButton" destination="sad-Ot-JnV" id="zrN-e8-U8A"/>
             </connections>
             <point key="canvasLocation" x="85" y="20"/>
         </view>

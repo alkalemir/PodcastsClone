@@ -13,4 +13,5 @@ struct Episode {
     let description: String
     var imageUrl: String
     let author: String
+    let mp3url: String
 }
