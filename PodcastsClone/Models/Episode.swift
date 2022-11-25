@@ -9,4 +9,7 @@ import Foundation
 
 struct Episode {
     let title: String
+    let pubDate: Date
+    let description: String
+    let imageUrl: String
 }

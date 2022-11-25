@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import FeedKit
 
 class APIService {
     static let shared = APIService()
@@ -33,6 +34,20 @@ class APIService {
                 completionHandler(response.results)
             } catch {
 //                print(error)
+            }
+        }
+    }
+    
+    func fetchEpisodes(with feedUrl: URL, completionHandler: @escaping ([RSSFeedItem]) -> ()) {
+        let parser = FeedParser(URL: feedUrl)
+        
+        parser.parseAsync { result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let rss):
+                guard let items = rss.rssFeed?.items else { return }
+                completionHandler(items)
             }
         }
     }
