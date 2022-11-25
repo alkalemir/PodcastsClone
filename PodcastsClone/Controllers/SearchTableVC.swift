@@ -48,8 +48,31 @@ extension SearchTableVC {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         132
     }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = "Please enter a search term."
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
+        return label
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        podcasts.count > 0 ? 0 : 150
+    }
 }
 
+
+// MARK: - TableView Delegate
+
+extension SearchTableVC {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let episodesController = EpisodesTableVC()
+        episodesController.podcast = podcasts[indexPath.row]
+        
+        navigationController?.pushViewController(episodesController, animated: true)
+    }
+}
 
 // MARK: - SearchController
 
